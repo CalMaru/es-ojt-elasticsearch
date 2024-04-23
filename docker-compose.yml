@@ -1,0 +1,39 @@
+version: "3.8"
+
+networks:
+  elastic:
+    driver: bridge
+
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    environment:
+      node.name: es01
+      cluster.name: es-docker-cluster
+      discovery.type: single-node
+      bootstrap.memory_lock: true
+      xpack.security.enabled: false
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ELASTIC_PASSWORD: ${ES_PASSWORD}
+    volumes:
+      - ./elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elastic
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.16.3
+    environment:
+      elasticsearch.hosts: "http://elasticsearch:9200"
+      elasticsearch.username: kibana_system
+      elasticsearch.password: ${ES_PASSWORD}
+    ports:
+      - "5601:5601"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
