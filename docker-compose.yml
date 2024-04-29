@@ -7,7 +7,9 @@ networks:
 services:
   elasticsearch:
     container_name: elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    build:
+      context: ./elasticsearch
+      dockerfile: Dockerfile
     environment:
       node.name: es01
       cluster.name: es-docker-cluster
@@ -17,7 +19,7 @@ services:
       ES_JAVA_OPTS: "-Xmx2g -Xms2g"
       ELASTIC_PASSWORD: ${ES_PASSWORD}
     volumes:
-      - ./elasticsearch:/usr/share/elasticsearch/data
+      - ./elasticsearch/elasticsearch:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
