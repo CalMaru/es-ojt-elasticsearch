@@ -1,0 +1,40 @@
+{
+    "settings": {
+        "index": {
+            "analysis": {
+                "tokenizer": {
+                    "nori_user_dict_tokenizer": {
+                        "type": "nori_tokenizer",
+                        "decompound_mode": "mixed"
+                    }
+                },
+                "analyzer": {
+                    "nori_token_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "nori_user_dict_tokenizer"
+                    },
+                    "nori_stoptags_analyzer": {
+                        "tokenizer": "nori_tokenizer",
+                        "filter": [
+                            "nori_posfilter"
+                        ]
+                    },
+                    "nori_readingform_analyzer": {
+                        "tokenizer": "nori_tokenizer",
+                        "filter": ["nori_rieadingform"]
+                    }
+                },
+                "filter": {
+                    "nori_posfilter": {
+                        "type": "nori_part_of_speech",
+                        "stoptags": [
+                            "E",
+                            "IC",
+                            "J"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

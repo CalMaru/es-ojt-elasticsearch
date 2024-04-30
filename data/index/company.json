@@ -1,0 +1,25 @@
+{
+    "settings": {
+        "index": {
+            "analysis": {
+                "analyzer": {
+                    "my_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "trim",
+                            "lowercase"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "name": {
+                "type": "keyword"
+            }
+        }
+    }
+}

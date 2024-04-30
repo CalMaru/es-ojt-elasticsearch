@@ -1,0 +1,80 @@
+{
+    "settings": {
+        "index": {
+            "analysis": {
+                "tokenizer": {
+                    "decompound_tokenizer": {
+                        "type": "nori_tokenizer",
+                        "decompound_mode": "mixed",
+                        "discard_punctuation": "false"
+                    }
+                },
+                "analyzer": {
+                    "korean_analyzer": {
+                        "filter": [
+                            "trim",
+                            "lowercase",
+                            "nori_readingform",
+                            "pos_filter_speech"
+                        ],
+                        "tokenizer": "decompound_tokenizer"
+                    }
+                },
+                "filter": {
+                    "pos_filter_speech": {
+                        "type": "nori_part_of_speech",
+                        "stoptags": [
+                            "E",
+                            "IC",
+                            "J",
+                            "MAG",
+                            "MAJ",
+                            "MM",
+                            "NA",
+                            "NR",
+                            "SC",
+                            "SE",
+                            "SF",
+                            "SH",
+                            "SL",
+                            "SN",
+                            "SP",
+                            "SSC",
+                            "SSO",
+                            "SY",
+                            "UNA",
+                            "UNKNOWN",
+                            "VA",
+                            "VCN",
+                            "VCP",
+                            "VSV",
+                            "VV",
+                            "VX",
+                            "XPN",
+                            "XR",
+                            "XSA",
+                            "XSN",
+                            "XSV"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "title": {
+                "type": "text",
+                "analyzer": "standard",
+                "search_analyzer": "standard",
+                "fields": {
+                    "korean": {
+                        "type": "text",
+                        "analyzer": "korean_analyzer",
+                        "search_analyzer": "korean_analyzer"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 1,
+            "number_of_replicas": 0,
+            "analysis": {
+                "tokenizer": {
+                    "decompound_tokenizer": {
+                        "type": "nori_tokenizer",
+                        "decompound_mode": "mixed",
+                        "discard_punctuation": "false"
+                    }
+                },
+                "analyzer": {
+                    "korean_analyzer": {
+                        "filter": [
+                            "trim",
+                            "lowercase",
+                            "nori_readingform",
+                            "pos_filter_speech"
+                        ],
+                        "tokenizer": "decompound_tokenizer"
+                    }
+                },
+                "filter": {
+                    "pos_filter_speech": {
+                        "type": "nori_part_of_speech",
+                        "stoptags": [
+                            "E",
+                            "IC",
+                            "J",
+                            "MAG",
+                            "MAJ",
+                            "MM",
+                            "NA",
+                            "NR",
+                            "SC",
+                            "SE",
+                            "SF",
+                            "SH",
+                            "SL",
+                            "SN",
+                            "SP",
+                            "SSC",
+                            "SSO",
+                            "SY",
+                            "UNA",
+                            "UNKNOWN",
+                            "VA",
+                            "VCN",
+                            "VCP",
+                            "VSV",
+                            "VV",
+                            "VX",
+                            "XPN",
+                            "XR",
+                            "XSA",
+                            "XSN",
+                            "XSV"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "id": {
+                "type": "keyword",
+                "index": false
+            },
+            "title": {
+                "type": "text",
+                "analyzer": "standard",
+                "search_analyzer": "standard",
+                "fields": {
+                    "korean": {
+                        "type": "text",
+                        "analyzer": "korean_analyzer",
+                        "search_analyzer": "korean_analyzer"
+                    }
+                }
+            },
+            "content": {
+                "type": "text",
+                "analyzer": "standard",
+                "search_analyzer": "standard",
+                "fields": {
+                    "korean": {
+                        "type": "text",
+                        "analyzer": "korean_analyzer",
+                        "search_analyzer": "korean_analyzer"
+                    }
+                }
+            },
+            "provider": {
+                "type": "nested",
+                "properties": {
+                    "name": {
+                        "type": "keyword"
+                    },
+                    "type": {
+                        "type": "keyword"
+                    },
+                    "location": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "category": {
+                "type": "nested",
+                "properties": {
+                    "major": {
+                        "type": "keyword"
+                    },
+                    "minor": {
+                        "type": "keyword"
+                    }
+                }
+            },
+            "reporter": {
+                "type": "text"
+            },
+            "date": {
+                "type": "date",
+                "format":  "strict_date_optional_time"
+            }
+        }
+    }
+}

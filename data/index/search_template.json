@@ -1,0 +1,6 @@
+{
+    "script": {
+        "lang": "mustache",
+        "source": "{\"size\": 100, \"timeout\": \"1s\", \"_source\": [ \"reporter\", \"title\", \"content\", \"provider\", \"category\", \"date\" ], \"query\": { \"bool\": { \"must\": [ {{#reporter}} { \"term\": { \"reporter\": \"{{reporter}}\" } }, {{/reporter}} { \"nested\": { \"path\": \"category\", \"query\": { \"bool\": { \"must\": [ { \"term\": { \"category.major\": \"{{category_major}}\" } }, { \"term\": { \"category.minor\": \"{{category_minor}}\" } } ] } } } }, { \"nested\": { \"path\": \"provider\", \"query\": { \"bool\": { \"must\": [ {{#provider_name}} { \"term\": { \"provider.name\": \"{{provider_name}}\" } }, {{/provider_name}} { \"term\": { \"provider.type\": \"{{provider_type}}\" } } ] } } } }, { \"range\": { \"date\": { \"format\": \"yyyy-MM-dd\", \"gte\": \"{{start_date}}{{^start_date}}2021-01-01{{/start_date}}\", \"lte\": \"{{end_date}}{{^end_date}}2021-05-02{{/end_date}}\" } } } ], \"should\": [ { \"match\": { \"title\": \"{{query}}\" } }, { \"match\": { \"content\": \"{{query}}\" } } ]}}, \"sort\": { \"{{sort_key}}{{^sort_key}}_score{{/sort_key}}\": { \"order\": \"{{sort_order}}{{^sort_order}}desc{{/sort_order}}\" } }, \"highlight\": { \"pre_tags\": [ \"<strong>\" ], \"post_tags\": [ \"</string>\" ], \"fields\": [ { \"title\": {} }, { \"content\": {} } ] } }"
+    }
+}

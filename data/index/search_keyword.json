@@ -1,0 +1,46 @@
+{
+    "settings": {
+        "index": {
+            "analysis": {
+                "analyzer": {
+                    "kor2eng_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "trim",
+                            "lowercase",
+                            "javacafe_kor2eng"
+                        ]
+                    },
+                    "eng2kor_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "trim",
+                            "lowercase",
+                            "javacafe_eng2kor"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "name": {
+                "type": "keyword",
+                "copy_to": ["kor2eng_suggest", "eng2kor_suggest"]
+            },
+            "kor2eng_suggest": {
+                "type": "text",
+                "analyzer": "standard",
+                "search_analyzer": "kor2eng_analyzer"
+            },
+            "eng2kor_suggest": {
+                "type": "text",
+                "analyzer": "standard",
+                "search_analyzer": "eng2kor_analyzer"
+            }
+        }
+    }
+}
