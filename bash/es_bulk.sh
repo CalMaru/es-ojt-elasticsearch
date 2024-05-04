@@ -7,14 +7,14 @@ else
     exit 1
 fi
 
-LOG_PATH=./logs/index
+LOG_PATH=../logs/bulk
 BULK_PATH=../data/bulk
 
 if [ -d "$LOG_PATH" ]; then
     rm -rf "$LOG_PATH"
 fi
 
-mkdir LOG_PATH
+mkdir "$LOG_PATH"
 
 curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/byline/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/byline.json -o ./logs/bulk/byline.log
 echo ""

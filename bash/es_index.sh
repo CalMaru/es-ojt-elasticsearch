@@ -7,7 +7,7 @@ else
     exit 1
 fi
 
-LOG_PATH=$LOG_PATH
+LOG_PATH=../logs/index
 INDEX_PATH=../data/index
 
 if [ -d "$LOG_PATH" ]; then
