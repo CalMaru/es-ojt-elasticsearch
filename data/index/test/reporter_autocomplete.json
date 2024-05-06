@@ -1,0 +1,102 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 1,
+            "number_of_replicas": 0
+        },
+        "analysis": {
+            "analyzer": {
+                "ngram_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "ngram_tokenizer",
+                    "filter": [
+                        "lowercase",
+                        "trim"
+                    ]
+                },
+                "edge_ngram_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "edge_ngram_tokenizer",
+                    "filter": [
+                        "lowercase",
+                        "trim",
+                        "edge_ngram_filter_front"
+                    ]
+                },
+                "edge_ngram_filter_back": {
+                    "type": "custom",
+                    "tokenizer": "edge_ngram_tokenizer",
+                    "filter": [
+                        "lowercase",
+                        "trim",
+                        "edge_ngram_filter_back"
+                    ]
+                }
+            },
+            "tokenizer": {
+                "ngram_tokenizer": {
+                    "type": "nGram",
+                    "min_gram": "1",
+                    "max_gram": "50",
+                    "token_chars": [
+                        "letter",
+                        "digit",
+                        "punctuation",
+                        "symbol"
+                    ]
+                },
+                "edge_ngram_tokenizer": {
+                    "type": "edge_ngram",
+                    "min_gram": "1",
+                    "max_gram": "50",
+                    "token_chars": [
+                        "letter",
+                        "digit",
+                        "punctuation",
+                        "symbol"
+                    ]
+                }
+            },
+            "filter": {
+                "edge_ngram_filter_front": {
+                    "type": "edge_ngram",
+                    "min_gram": "1",
+                    "max_gram": "50",
+                    "side": "front"
+                },
+                "edge_ngram_filter_back": {
+                    "type": "edge_ngram",
+                    "min_gram": "1",
+                    "max_gram": "50",
+                    "side": "back"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "name": {
+                "type": "keyword",
+                "boost": 30
+            },
+            "nameNgram": {
+                "type": "text",
+                "analyzer": "ngram_analyzer",
+                "search_analyzer": "ngram_analyzer",
+                "boost": 3
+            },
+            "nameNgramEdge": {
+                "type": "text",
+                "analyzer": "edge_ngram_analyzer",
+                "search_analyzer": "ngram_analyzer",
+                "boost": 2
+            },
+            "nameNgramEdgeBack": {
+                "type": "text",
+                "analyzer": "edge_ngram_analyzer_back",
+                "search_analyzer": "ngram_analyzer",
+                "boost": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 1,
+            "number_of_replicas": 0
+        },
+        "analysis": {
+            "analyzer": {
+                "jamo_index_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "keyword",
+                    "filter": [
+                        "javacafe_jamo_filter",
+                        "lowercase",
+                        "trim",
+                        "edge_ngram_filter_front"
+                    ]
+                },
+                "jamo_search_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "keyword",
+                    "filter": [
+                        "javacafe_jamo_filter",
+                        "lowercase",
+                        "trim"
+                    ]
+                }
+            },
+            "filter": {
+                "edge_ngram_filter_front": {
+                    "type": "edge_ngram",
+                    "min_gram": "1",
+                    "max_gram": "50",
+                    "side": "front"
+                },
+                "javacafe_jamo_filter": {
+                    "type": "javacafe_jamo"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "name": {
+                "type": "keyword"
+            },
+            "nameJamo": {
+                "type": "text",
+                "analyzer": "jamo_index_analyzer",
+                "search_analyzer": "jamo_search_analyzer"
+            }
+        }
+    }
+}
