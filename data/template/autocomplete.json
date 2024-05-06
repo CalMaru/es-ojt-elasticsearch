@@ -1,6 +1,6 @@
 {
   "script": {
-      "lang": "mustache",
-      "source": "{{{#sources}}\"_source\":{{#toJson}}sources{{/toJson}},{{/sources}}\"query\":{\"bool\":{\"should\":{\"term\":{\"{{key}}\":\"{{value}}\"}},\"minimum_should_match\":1}},\"sort\":{{#sort}}{{#toJson}}sort{{/toJson}}{{/sort}}{{^sort}}[]{{/sort}}}"
+    "lang": "mustache",
+    "source": "{\"_source\":{{#toJson}}sources{{/toJson}},\"query\":{\"bool\":{\"should\":{{#toJson}}should{{/toJson}},\"minimum_should_match\":1}},\"sort\":{{#sort}}{{#toJson}}sort{{/toJson}}{{/sort}}{{^sort}}[]{{/sort}}}"
   }
 }
