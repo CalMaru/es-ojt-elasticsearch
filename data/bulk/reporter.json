@@ -881,8 +881,6 @@
 {"index": {"_index": "reporter"}}
 {"name": "김민욱"}
 {"index": {"_index": "reporter"}}
-{"name": "김민욱(|kim"}
-{"index": {"_index": "reporter"}}
 {"name": "김민재"}
 {"index": {"_index": "reporter"}}
 {"name": "김민정"}
@@ -2341,7 +2339,7 @@
 {"index": {"_index": "reporter"}}
 {"name": "민지리뷰"}
 {"index": {"_index": "reporter"}}
-{"name": "민지혜(|spop"}
+{"name": "민지혜"}
 {"index": {"_index": "reporter"}}
 {"name": "민태원"}
 {"index": {"_index": "reporter"}}
@@ -2583,7 +2581,7 @@
 {"index": {"_index": "reporter"}}
 {"name": "박소연"}
 {"index": {"_index": "reporter"}}
-{"name": "박소영(|park"}
+{"name": "박소영"}
 {"index": {"_index": "reporter"}}
 {"name": "박소윤"}
 {"index": {"_index": "reporter"}}
@@ -4156,8 +4154,6 @@
 {"name": "오현아"}
 {"index": {"_index": "reporter"}}
 {"name": "오현우"}
-{"index": {"_index": "reporter"}}
-{"name": "오현우(|ohw"}
 {"index": {"_index": "reporter"}}
 {"name": "오현태"}
 {"index": {"_index": "reporter"}}
@@ -6128,8 +6124,6 @@
 {"name": "정원식"}
 {"index": {"_index": "reporter"}}
 {"name": "정원엽"}
-{"index": {"_index": "reporter"}}
-{"name": "정원엽(|jung"}
 {"index": {"_index": "reporter"}}
 {"name": "정원일"}
 {"index": {"_index": "reporter"}}
