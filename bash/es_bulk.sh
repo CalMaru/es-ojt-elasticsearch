@@ -7,7 +7,7 @@ else
     exit 1
 fi
 
-LOG_PATH=.$LOG_PATH
+LOG_PATH=../logs/bulk
 BULK_PATH=../data/bulk
 
 if [ -d "$LOG_PATH" ]; then
