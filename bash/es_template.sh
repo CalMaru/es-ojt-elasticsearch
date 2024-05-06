@@ -18,5 +18,5 @@ mkdir "$LOG_PATH"
 
 curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/get_all_items" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/get_all_items.json -o $LOG_PATH/get_all_items.log
 echo ""
-curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/autocomplete" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/autocomplete.json -o $LOG_PATH/autocomplete.log
+curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/autocomplete_reporter" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/autocomplete_reporter.json -o $LOG_PATH/autocomplete_reporter.log
 echo ""
