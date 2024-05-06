@@ -1,6 +1,39 @@
 {
   "script": {
     "lang": "mustache",
-    "source": "{\"_source\":{{#toJson}}sources{{/toJson}},\"query\":{\"bool\":{\"should\":{{#toJson}}should{{/toJson}},\"minimum_should_match\":1}},\"sort\":{{#sort}}{{#toJson}}sort{{/toJson}}{{/sort}}{{^sort}}[]{{/sort}}}"
+    "source": {
+      "query": {
+        "bool": {
+          "should": [
+            {
+              "prefix": {
+                "item": "{{query}}"
+              }
+            },
+            {
+              "term": {
+                "nameJamoNGram": "{{query_jamo}}"
+              }
+            },
+            {
+              "term": {
+                "nameJamoNGramEdge": "{{query_jamo}}"
+              }
+            },
+            {
+              "term": {
+                "nameJamoNGramEdgeBack": "{{query_jamo}}"
+              }
+            }
+          ],
+          "minimum_should_match": 1
+        }
+      },
+      "sort": [
+        {
+          "_score": "desc"
+        }
+      ]
+    }
   }
 }
