@@ -4,22 +4,54 @@
             "number_of_shards": 1,
             "number_of_replicas": 0,
             "analysis": {
-                "tokenizer": {
-                    "decompound_tokenizer": {
-                        "type": "nori_tokenizer",
-                        "decompound_mode": "mixed",
-                        "discard_punctuation": "false"
-                    }
-                },
                 "analyzer": {
-                    "korean_analyzer": {
+                    "korean_mixed_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "decompound_mixed_tokenizer",
+                        "filter": [
+                            "lowercase",
+                            "trim",
+                            "nori_readingform",
+                            "pos_filter_speech"
+                        ]
+                    },
+                    "korean_discard_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "decompound_discard_tokenizer",
+                        "filter": [
+                            "lowercase",
+                            "trim",
+                            "nori_readingform",
+                            "pos_filter_speech"
+                        ]
+                    },
+                    "korean_spell_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
                         "filter": [
                             "trim",
                             "lowercase",
-                            "nori_readingform",
-                            "pos_filter_speech"
-                        ],
-                        "tokenizer": "decompound_tokenizer"
+                            "javacafe_spell"
+                        ]
+                    },
+                    "ngram_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "ngram_filter"
+                        ]
+                    }
+                },
+                "tokenizer": {
+                    "decompound_mixed_tokenizer": {
+                        "type": "nori_tokenizer",
+                        "decompound_mode": "mixed",
+                        "discard_punctuation": "false"
+                    },
+                    "decomposed_discard_tokenizer": {
+                        "type": "nori_tokenizer",
+                        "decompound_mode": "discard",
+                        "discard_punctuation": "false"
                     }
                 },
                 "filter": {
@@ -58,6 +90,11 @@
                             "XSN",
                             "XSV"
                         ]
+                    },
+                    "ngram_filter": {
+                        "type": "ngram",
+                        "min_gram": 3,
+                        "max_gram": 3
                     }
                 }
             }
@@ -71,25 +108,31 @@
             },
             "title": {
                 "type": "text",
-                "analyzer": "standard",
-                "search_analyzer": "standard",
+                "analyzer": "korean_mixed_analyzer",
+                "search_analyzer": "korean_mixed_analyzer",
                 "fields": {
-                    "korean": {
+                    "ngram": {
                         "type": "text",
-                        "analyzer": "korean_analyzer",
-                        "search_analyzer": "korean_analyzer"
+                        "analyzer": "ngram_analyzer"
+                    },
+                    "suggest": {
+                        "type": "completion",
+                        "analyzer": "korean_spell_analyzer"
                     }
                 }
             },
             "content": {
                 "type": "text",
-                "analyzer": "standard",
-                "search_analyzer": "standard",
+                "analyzer": "korean_mixed_analyzer",
+                "search_analyzer": "korean_mixed_analyzer",
                 "fields": {
-                    "korean": {
+                    "ngram": {
                         "type": "text",
-                        "analyzer": "korean_analyzer",
-                        "search_analyzer": "korean_analyzer"
+                        "analyzer": "ngram_analyzer"
+                    },
+                    "suggest": {
+                        "type": "completion",
+                        "analyzer": "korean_spell_analyzer"
                     }
                 }
             },
@@ -123,7 +166,7 @@
             },
             "date": {
                 "type": "date",
-                "format":  "strict_date_optional_time"
+                "format": "strict_date_optional_time"
             }
         }
     }
