@@ -1,144 +1,144 @@
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "외환", "minorJamo": "외환"}
+{"major": "경제", "minor": "외환"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "국제경제", "minorJamo": "국제경제"}
+{"major": "경제", "minor": "국제경제"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "무역", "minorJamo": "무역"}
+{"major": "경제", "minor": "무역"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "유통", "minorJamo": "유통"}
+{"major": "경제", "minor": "유통"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "자동차", "minorJamo": "자동차"}
+{"major": "경제", "minor": "자동차"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "서비스_쇼핑", "minorJamo": "서비스_쇼핑"}
+{"major": "경제", "minor": "서비스_쇼핑"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "금융_재테크", "minorJamo": "금융_재테크"}
+{"major": "경제", "minor": "금융_재테크"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "경제일반", "minorJamo": "경제일반"}
+{"major": "경제", "minor": "경제일반"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "부동산", "minorJamo": "부동산"}
+{"major": "경제", "minor": "부동산"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "취업_창업", "minorJamo": "취업_창업"}
+{"major": "경제", "minor": "취업_창업"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "산업_기업", "minorJamo": "산업_기업"}
+{"major": "경제", "minor": "산업_기업"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "반도체", "minorJamo": "반도체"}
+{"major": "경제", "minor": "반도체"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "증권_증시", "minorJamo": "증권_증시"}
+{"major": "경제", "minor": "증권_증시"}
 {"index": {"_index": "category"}}
-{"major": "경제", "minor": "자원", "minorJamo": "자원"}
+{"major": "경제", "minor": "자원"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "농구_배구", "minorJamo": "농구_배구"}
+{"major": "스포츠", "minor": "농구_배구"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "축구", "minorJamo": "축구"}
+{"major": "스포츠", "minor": "축구"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "골프", "minorJamo": "골프"}
+{"major": "스포츠", "minor": "골프"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "월드컵", "minorJamo": "월드컵"}
+{"major": "스포츠", "minor": "월드컵"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "야구", "minorJamo": "야구"}
+{"major": "스포츠", "minor": "야구"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "스포츠일반", "minorJamo": "스포츠일반"}
+{"major": "스포츠", "minor": "스포츠일반"}
 {"index": {"_index": "category"}}
-{"major": "스포츠", "minor": "올림픽_아시안게임", "minorJamo": "올림픽_아시안게임"}
+{"major": "스포츠", "minor": "올림픽_아시안게임"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "영화", "minorJamo": "영화"}
+{"major": "문화", "minor": "영화"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "전시_공연", "minorJamo": "전시_공연"}
+{"major": "문화", "minor": "전시_공연"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "생활", "minorJamo": "생활"}
+{"major": "문화", "minor": "생활"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "종교", "minorJamo": "종교"}
+{"major": "문화", "minor": "종교"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "미술_건축", "minorJamo": "미술_건축"}
+{"major": "문화", "minor": "미술_건축"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "방송_연예", "minorJamo": "방송_연예"}
+{"major": "문화", "minor": "방송_연예"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "문화일반", "minorJamo": "문화일반"}
+{"major": "문화", "minor": "문화일반"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "음악", "minorJamo": "음악"}
+{"major": "문화", "minor": "음악"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "요리_여행", "minorJamo": "요리_여행"}
+{"major": "문화", "minor": "요리_여행"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "학술_문화재", "minorJamo": "학술_문화재"}
+{"major": "문화", "minor": "학술_문화재"}
 {"index": {"_index": "category"}}
-{"major": "문화", "minor": "출판", "minorJamo": "출판"}
+{"major": "문화", "minor": "출판"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "IT_과학일반", "minorJamo": "IT_과학일반"}
+{"major": "IT_과학", "minor": "IT_과학일반"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "인터넷_SNS", "minorJamo": "인터넷_SNS"}
+{"major": "IT_과학", "minor": "인터넷_SNS"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "모바일", "minorJamo": "모바일"}
+{"major": "IT_과학", "minor": "모바일"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "콘텐츠", "minorJamo": "콘텐츠"}
+{"major": "IT_과학", "minor": "콘텐츠"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "과학", "minorJamo": "과학"}
+{"major": "IT_과학", "minor": "과학"}
 {"index": {"_index": "category"}}
-{"major": "IT_과학", "minor": "보안", "minorJamo": "보안"}
+{"major": "IT_과학", "minor": "보안"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "경남", "minorJamo": "경남"}
+{"major": "지역", "minor": "경남"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "강원", "minorJamo": "강원"}
+{"major": "지역", "minor": "강원"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "충남", "minorJamo": "충남"}
+{"major": "지역", "minor": "충남"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "지역일반", "minorJamo": "지역일반"}
+{"major": "지역", "minor": "지역일반"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "경기", "minorJamo": "경기"}
+{"major": "지역", "minor": "경기"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "경북", "minorJamo": "경북"}
+{"major": "지역", "minor": "경북"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "제주", "minorJamo": "제주"}
+{"major": "지역", "minor": "제주"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "대전", "minorJamo": "대전"}
+{"major": "지역", "minor": "대전"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "충북", "minorJamo": "충북"}
+{"major": "지역", "minor": "충북"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "전북", "minorJamo": "전북"}
+{"major": "지역", "minor": "전북"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "대구", "minorJamo": "대구"}
+{"major": "지역", "minor": "대구"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "광주", "minorJamo": "광주"}
+{"major": "지역", "minor": "광주"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "울산", "minorJamo": "울산"}
+{"major": "지역", "minor": "울산"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "전남", "minorJamo": "전남"}
+{"major": "지역", "minor": "전남"}
 {"index": {"_index": "category"}}
-{"major": "지역", "minor": "부산", "minorJamo": "부산"}
+{"major": "지역", "minor": "부산"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "미디어", "minorJamo": "미디어"}
+{"major": "사회", "minor": "미디어"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "장애인", "minorJamo": "장애인"}
+{"major": "사회", "minor": "장애인"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "교육_시험", "minorJamo": "교육_시험"}
+{"major": "사회", "minor": "교육_시험"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "환경", "minorJamo": "환경"}
+{"major": "사회", "minor": "환경"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "날씨", "minorJamo": "날씨"}
+{"major": "사회", "minor": "날씨"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "노동_복지", "minorJamo": "노동_복지"}
+{"major": "사회", "minor": "노동_복지"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "여성", "minorJamo": "여성"}
+{"major": "사회", "minor": "여성"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "사건_사고", "minorJamo": "사건_사고"}
+{"major": "사회", "minor": "사건_사고"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "사회일반", "minorJamo": "사회일반"}
+{"major": "사회", "minor": "사회일반"}
 {"index": {"_index": "category"}}
-{"major": "사회", "minor": "의료_건강", "minorJamo": "의료_건강"}
+{"major": "사회", "minor": "의료_건강"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "중동_아프리카", "minorJamo": "중동_아프리카"}
+{"major": "국제", "minor": "중동_아프리카"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "중국", "minorJamo": "중국"}
+{"major": "국제", "minor": "중국"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "미국_북미", "minorJamo": "미국_북미"}
+{"major": "국제", "minor": "미국_북미"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "러시아", "minorJamo": "러시아"}
+{"major": "국제", "minor": "러시아"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "유럽_EU", "minorJamo": "유럽_EU"}
+{"major": "국제", "minor": "유럽_EU"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "아시아", "minorJamo": "아시아"}
+{"major": "국제", "minor": "아시아"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "국제일반", "minorJamo": "국제일반"}
+{"major": "국제", "minor": "국제일반"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "중남미", "minorJamo": "중남미"}
+{"major": "국제", "minor": "중남미"}
 {"index": {"_index": "category"}}
-{"major": "국제", "minor": "일본", "minorJamo": "일본"}
+{"major": "국제", "minor": "일본"}
