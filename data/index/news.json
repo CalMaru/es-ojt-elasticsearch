@@ -48,7 +48,7 @@
                         "decompound_mode": "mixed",
                         "discard_punctuation": "false"
                     },
-                    "decomposed_discard_tokenizer": {
+                    "decompound_discard_tokenizer": {
                         "type": "nori_tokenizer",
                         "decompound_mode": "discard",
                         "discard_punctuation": "false"
