@@ -1,0 +1,65 @@
+{
+    "script": {
+        "lang": "mustache",
+        "source": {
+            "query": {
+                "bool": {
+                    "should": [
+                        {
+                            "prefix": {
+                                "item": {
+                                    "value": "{{query}}",
+                                    "boost": 30
+                                }
+                            }
+                        },
+                        {
+                            "term": {
+                                "item.jamo_ngram": {
+                                    "value": "{{query_jamo}}",
+                                    "boost": 3
+                                }
+                            }
+                        },
+                        {
+                            "term": {
+                                "item.jamo_edge_ngram": {
+                                    "value": "{{query_jamo}}",
+                                    "boost": 2
+                                }
+                            }
+                        },
+                        {
+                            "term": {
+                                "item.jamo_edge_ngram_back": {
+                                    "value": "{{query_jamo}}",
+                                    "boost": 1
+                                }
+                            }
+                        },
+                        {
+                            "match": {
+                                "item.kor2eng": {
+                                    "query": "{{query_jamo}}"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "suggest": {
+                "spell-suggestion": {
+                    "text": "{{query}}",
+                    "term": {
+                        "field": "item.spell"
+                    }
+                }
+            },
+            "sort": [
+                {
+                    "_score": "desc"
+                }
+            ]
+        }
+    }
+}

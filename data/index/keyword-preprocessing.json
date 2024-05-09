@@ -1,0 +1,68 @@
+{
+    "settings": {
+      "index": {
+        "number_of_shards": 1,
+        "number_of_replicas": 0,
+        "max_ngram_diff": 20
+      },
+      "analysis": {
+        "analyzer": {
+          "korean_mixed_analyzer": {
+            "type": "custom",
+            "tokenizer": "decompound_mixed_tokenizer",
+            "filter": [
+              "lowercase",
+              "trim",
+              "nori_readingform",
+              "pos_filter_speech"
+            ]
+          }
+        },
+        "tokenizer": {
+          "decompound_mixed_tokenizer": {
+            "type": "nori_tokenizer",
+            "decompound_mode": "mixed",
+            "discard_punctuation": "false"
+          }
+        },
+        "filter": {
+          "pos_filter_speech": {
+            "type": "nori_part_of_speech",
+            "stoptags": [
+              "E",
+              "IC",
+              "J",
+              "MAG",
+              "MAJ",
+              "MM",
+              "NA",
+              "NR",
+              "SC",
+              "SE",
+              "SF",
+              "SH",
+              "SL",
+              "SN",
+              "SP",
+              "SSC",
+              "SSO",
+              "SY",
+              "UNA",
+              "UNKNOWN",
+              "VA",
+              "VCN",
+              "VCP",
+              "VSV",
+              "VV",
+              "VX",
+              "XPN",
+              "XR",
+              "XSA",
+              "XSN",
+              "XSV"
+            ]
+          }
+        }
+      }
+    }
+  }

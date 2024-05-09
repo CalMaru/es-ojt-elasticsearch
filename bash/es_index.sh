@@ -22,5 +22,7 @@ curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/provider" -H "Content-Type: applica
 echo ""
 curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/reporter" -H "Content-Type: application/json" -d @$INDEX_PATH/reporter.json -o $LOG_PATH/reporter.log
 echo ""
+curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/keyword" -H "Content-Type: application/json" -d @$INDEX_PATH/keyword.json -o $LOG_PATH/keyword.log
+echo ""
 curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/news" -H "Content-Type: application/json" -d @$INDEX_PATH/news.json -o $LOG_PATH/news.log
 echo ""

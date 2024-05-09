@@ -22,5 +22,7 @@ curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/provider/_bulk?pretty" -H "Content
 echo ""
 curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/reporter/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/reporter.json -o $LOG_PATH/reporter.log
 echo ""
+curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/keyword/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/keyword.json -o $LOG_PATH/keyword.log
+echo ""
 curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/news/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/news.json -o $LOG_PATH/news.log
 echo ""

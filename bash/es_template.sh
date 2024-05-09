@@ -20,3 +20,7 @@ curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/get_all_items" -H "Content
 echo ""
 curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/autocomplete_reporter" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/autocomplete_reporter.json -o $LOG_PATH/autocomplete_reporter.log
 echo ""
+curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/autocomplete_keyword" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/autocomplete_keyword.json -o $LOG_PATH/autocomplete_keyword.log
+echo ""
+curl -X PUT -u elastic:$ES_PASSWORD "$ES_URL/_scripts/autocomplete_keyword_eng2kor" -H "Content-Type: application/json" -d @$TEMPLATE_PATH/autocomplete_keyword_eng2kor.json -o $LOG_PATH/autocomplete_keyword_eng2kor.log
+echo ""
