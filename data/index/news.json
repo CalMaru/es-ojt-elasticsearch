@@ -3,93 +3,92 @@
     "index": {
       "number_of_shards": 1,
       "number_of_replicas": 0,
-      "analysis": {
-        "analyzer": {
-          "korean_mixed_analyzer": {
-            "type": "custom",
-            "tokenizer": "decompound_mixed_tokenizer",
-            "filter": [
-              "lowercase",
-              "trim",
-              "nori_readingform",
-              "pos_filter_speech"
-            ]
-          },
-          "korean_discard_analyzer": {
-            "type": "custom",
-            "tokenizer": "decompound_discard_tokenizer",
-            "filter": [
-              "lowercase",
-              "trim",
-              "nori_readingform",
-              "pos_filter_speech"
-            ]
-          },
-          "korean_spell_analyzer": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "filter": ["trim", "lowercase", "javacafe_spell"]
-          },
-          "ngram_analyzer": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "filter": ["ngram_filter"]
-          }
+      "max_ngram_diff": 50
+    },
+    "analysis": {
+      "analyzer": {
+        "korean_mixed_analyzer": {
+          "type": "custom",
+          "tokenizer": "decompound_mixed_tokenizer",
+          "filter": [
+            "lowercase",
+            "trim",
+            "nori_readingform",
+            "pos_filter_speech"
+          ]
         },
-        "tokenizer": {
-          "decompound_mixed_tokenizer": {
-            "type": "nori_tokenizer",
-            "decompound_mode": "mixed",
-            "discard_punctuation": "false"
-          },
-          "decompound_discard_tokenizer": {
-            "type": "nori_tokenizer",
-            "decompound_mode": "discard",
-            "discard_punctuation": "false"
-          }
+        "edge_ngram_analyzer": {
+          "type": "custom",
+          "tokenizer": "edge_ngram_tokenizer",
+          "filter": ["lowercase", "trim", "edge_ngram_filter_front"]
         },
-        "filter": {
-          "pos_filter_speech": {
-            "type": "nori_part_of_speech",
-            "stoptags": [
-              "E",
-              "IC",
-              "J",
-              "MAG",
-              "MAJ",
-              "MM",
-              "NA",
-              "NR",
-              "SC",
-              "SE",
-              "SF",
-              "SH",
-              "SL",
-              "SN",
-              "SP",
-              "SSC",
-              "SSO",
-              "SY",
-              "UNA",
-              "UNKNOWN",
-              "VA",
-              "VCN",
-              "VCP",
-              "VSV",
-              "VV",
-              "VX",
-              "XPN",
-              "XR",
-              "XSA",
-              "XSN",
-              "XSV"
-            ]
-          },
-          "ngram_filter": {
-            "type": "ngram",
-            "min_gram": 3,
-            "max_gram": 3
-          }
+        "ngram_search_analzyer": {
+          "type": "custom",
+          "tokenizer": "ngram_tokenizer",
+          "filter": ["lowercase", "trim"]
+        }
+      },
+      "tokenizer": {
+        "decompound_mixed_tokenizer": {
+          "type": "nori_tokenizer",
+          "decompound_mode": "mixed",
+          "discard_punctuation": "false"
+        },
+        "edge_ngram_tokenizer": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "token_chars": ["letter", "digit", "punctuation", "symbol"]
+        },
+        "ngram_tokenizer": {
+          "type": "ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "token_chars": ["letter", "digit", "punctuation", "symbol"]
+        }
+      },
+      "filter": {
+        "pos_filter_speech": {
+          "type": "nori_part_of_speech",
+          "stoptags": [
+            "E",
+            "IC",
+            "J",
+            "MAG",
+            "MAJ",
+            "MM",
+            "NA",
+            "NR",
+            "SC",
+            "SE",
+            "SF",
+            "SH",
+            "SL",
+            "SN",
+            "SP",
+            "SSC",
+            "SSO",
+            "SY",
+            "UNA",
+            "UNKNOWN",
+            "VA",
+            "VCN",
+            "VCP",
+            "VSV",
+            "VV",
+            "VX",
+            "XPN",
+            "XR",
+            "XSA",
+            "XSN",
+            "XSV"
+          ]
+        },
+        "edge_ngram_filter_front": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "side": "front"
         }
       }
     }
@@ -103,30 +102,24 @@
       "title": {
         "type": "text",
         "analyzer": "korean_mixed_analyzer",
-        "search_analyzer": "korean_mixed_analyzer",
+        "search_analyzer": "ngram_search_analzyer",
         "fields": {
-          "ngram": {
+          "edge_ngram": {
             "type": "text",
-            "analyzer": "ngram_analyzer"
-          },
-          "suggest": {
-            "type": "completion",
-            "analyzer": "korean_spell_analyzer"
+            "analyzer": "edge_ngram_analyzer",
+            "search_analyzer": "ngram_search_analzyer"
           }
         }
       },
       "content": {
         "type": "text",
         "analyzer": "korean_mixed_analyzer",
-        "search_analyzer": "korean_mixed_analyzer",
+        "search_analyzer": "ngram_search_analzyer",
         "fields": {
-          "ngram": {
+          "edge_ngram": {
             "type": "text",
-            "analyzer": "ngram_analyzer"
-          },
-          "suggest": {
-            "type": "completion",
-            "analyzer": "korean_spell_analyzer"
+            "analyzer": "edge_ngram_analyzer",
+            "search_analyzer": "ngram_search_analzyer"
           }
         }
       },
@@ -156,7 +149,7 @@
         }
       },
       "reporter": {
-        "type": "text"
+        "type": "keyword"
       },
       "date": {
         "type": "date",
