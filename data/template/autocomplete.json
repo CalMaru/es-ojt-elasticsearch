@@ -7,7 +7,7 @@
           "should": [
             {
               "prefix": {
-                "item": {
+                "{{key}}": {
                   "value": "{{query}}",
                   "boost": 30
                 }
@@ -15,7 +15,7 @@
             },
             {
               "term": {
-                "item.jamo_ngram": {
+                "{{key}}.jamo_ngram": {
                   "value": "{{query_jamo}}",
                   "boost": 3
                 }
@@ -23,7 +23,7 @@
             },
             {
               "term": {
-                "item.jamo_edge_ngram": {
+                "{{key}}.jamo_edge_ngram": {
                   "value": "{{query_jamo}}",
                   "boost": 2
                 }
@@ -31,16 +31,9 @@
             },
             {
               "term": {
-                "item.jamo_edge_ngram_back": {
+                "{{key}}.jamo_edge_ngram_back": {
                   "value": "{{query_jamo}}",
                   "boost": 1
-                }
-              }
-            },
-            {
-              "match": {
-                "item.kor2eng": {
-                  "query": "{{query_jamo}}"
                 }
               }
             }
@@ -51,7 +44,7 @@
         "spell-suggestion": {
           "text": "{{query}}",
           "term": {
-            "field": "item.spell"
+            "field": "{{key}}.spell"
           }
         }
       },

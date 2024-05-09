@@ -41,16 +41,6 @@
           "type": "custom",
           "tokenizer": "standard",
           "filter": ["trim", "lowercase", "javacafe_spell"]
-        },
-        "kor2eng_analyzer": {
-          "type": "custom",
-          "tokenizer": "standard",
-          "filter": ["trim", "lowercase", "javacafe_kor2eng"]
-        },
-        "eng2kor_analyzer": {
-          "type": "custom",
-          "tokenizer": "standard",
-          "filter": ["trim", "lowercase", "javacafe_eng2kor"]
         }
       },
       "tokenizer": {
@@ -86,7 +76,8 @@
   "mappings": {
     "properties": {
       "item": {
-        "type": "keyword",
+        "type": "text",
+        "analyzer": "jamo_ngram_analyzer",
         "fields": {
           "jamo_ngram": {
             "type": "text",
@@ -106,16 +97,6 @@
           "spell": {
             "type": "completion",
             "analyzer": "spell_analyzer"
-          },
-          "eng2kor": {
-            "type": "text",
-            "analyzer": "standard",
-            "search_analyzer": "eng2kor_analyzer"
-          },
-          "kor2eng": {
-            "type": "text",
-            "analyzer": "standard",
-            "search_analyzer": "kor2eng_analyzer"
           }
         }
       }

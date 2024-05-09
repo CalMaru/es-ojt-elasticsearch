@@ -7,35 +7,40 @@
     },
     "analysis": {
       "analyzer": {
-        "ngram_jamo_analyzer": {
+        "jamo_ngram_analyzer": {
           "type": "custom",
           "tokenizer": "ngram_tokenizer",
-          "filter": ["javacafe_jamo_filter", "lowercase", "trim"]
+          "filter": ["javacafe_jamo", "lowercase", "trim"]
         },
-        "ngram_edge_jamo_analyzer": {
+        "jamo_edge_ngram_analyzer": {
           "type": "custom",
           "tokenizer": "edge_ngram_tokenizer",
           "filter": [
-            "javacafe_jamo_filter",
+            "javacafe_jamo",
             "lowercase",
             "trim",
             "edge_ngram_filter_front"
           ]
         },
-        "ngram_edge_jamo_analyzer_back": {
+        "jamo_edge_ngram_analyzer_back": {
           "type": "custom",
           "tokenizer": "edge_ngram_tokenizer",
           "filter": [
-            "javacafe_jamo_filter",
+            "javacafe_jamo",
             "lowercase",
             "trim",
             "edge_ngram_filter_back"
           ]
         },
-        "ngram_jamo_search_analyzer": {
+        "jamo_ngram_search_analyzer": {
           "type": "custom",
           "tokenizer": "ngram_tokenizer",
-          "filter": ["javacafe_jamo_filter", "lowercase", "trim"]
+          "filter": ["javacafe_jamo", "lowercase", "trim"]
+        },
+        "spell_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["trim", "lowercase", "javacafe_spell"]
         }
       },
       "tokenizer": {
@@ -64,9 +69,6 @@
           "min_gram": "1",
           "max_gram": "50",
           "side": "back"
-        },
-        "javacafe_jamo_filter": {
-          "type": "javacafe_jamo"
         }
       }
     }
@@ -74,31 +76,29 @@
   "mappings": {
     "properties": {
       "name": {
-        "type": "keyword",
-        "copy_to": [
-          "nameJamoNGram",
-          "nameJamoNGramEdge",
-          "nameJamoNGramEdgeBack"
-        ],
-        "boost": 30
-      },
-      "nameJamoNGram": {
         "type": "text",
-        "analyzer": "ngram_jamo_analyzer",
-        "search_analyzer": "ngram_jamo_search_analyzer",
-        "boost": 3
-      },
-      "nameJamoNGramEdge": {
-        "type": "text",
-        "analyzer": "ngram_edge_jamo_analyzer",
-        "search_analyzer": "ngram_jamo_search_analyzer",
-        "boost": 2
-      },
-      "nameJamoNGramEdgeBack": {
-        "type": "text",
-        "analyzer": "ngram_edge_jamo_analyzer_back",
-        "search_analyzer": "ngram_jamo_search_analyzer",
-        "boost": 1
+        "analyzer": "jamo_ngram_analyzer",
+        "fields": {
+          "jamo_ngram": {
+            "type": "text",
+            "analyzer": "jamo_ngram_analyzer",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "jamo_edge_ngram": {
+            "type": "text",
+            "analyzer": "jamo_edge_ngram_analyzer",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "jamo_edge_ngram_back": {
+            "type": "text",
+            "analyzer": "jamo_edge_ngram_analyzer_back",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "spell": {
+            "type": "completion",
+            "analyzer": "spell_analyzer"
+          }
+        }
       }
     }
   }
