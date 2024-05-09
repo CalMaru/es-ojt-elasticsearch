@@ -1,154 +1,124 @@
 {
-    "settings": {
-        "index": {
-            "number_of_shards": 1,
-            "number_of_replicas": 0,
-            "max_ngram_diff": 50
-        },
-        "analysis": {
-            "analyzer": {
-                "jamo_ngram_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "ngram_tokenizer",
-                    "filter": [
-                        "javacafe_jamo",
-                        "lowercase",
-                        "trim"
-                    ]
-                },
-                "jamo_edge_ngram_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "edge_ngram_tokenizer",
-                    "filter": [
-                        "javacafe_jamo",
-                        "lowercase",
-                        "trim",
-                        "edge_ngram_filter_front"
-                    ]
-                },
-                "jamo_edge_ngram_analyzer_back": {
-                    "type": "custom",
-                    "tokenizer": "edge_ngram_tokenizer",
-                    "filter": [
-                        "javacafe_jamo",
-                        "lowercase",
-                        "trim",
-                        "edge_ngram_filter_back"
-                    ]
-                },
-                "jamo_ngram_search_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "ngram_tokenizer",
-                    "filter": [
-                        "javacafe_jamo",
-                        "lowercase",
-                        "trim"
-                    ]
-                },
-                "spell_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "standard",
-                    "filter": [
-                        "trim",
-                        "lowercase",
-                        "javacafe_spell"
-                    ]
-                },
-                "kor2eng_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "standard",
-                    "filter": [
-                        "trim",
-                        "lowercase",
-                        "javacafe_kor2eng"
-                    ]
-                },
-                "eng2kor_analyzer": {
-                    "type": "custom",
-                    "tokenizer": "standard",
-                    "filter": [
-                        "trim",
-                        "lowercase",
-                        "javacafe_eng2kor"
-                    ]
-                }
-            },
-            "tokenizer": {
-                "ngram_tokenizer": {
-                    "type": "ngram",
-                    "min_gram": "1",
-                    "max_gram": "50",
-                    "token_chars": [
-                        "letter",
-                        "digit",
-                        "punctuation",
-                        "symbol"
-                    ]
-                },
-                "edge_ngram_tokenizer": {
-                    "type": "edge_ngram",
-                    "min_gram": "1",
-                    "max_gram": "50",
-                    "token_chars": [
-                        "letter",
-                        "digit",
-                        "punctuation",
-                        "symbol"
-                    ]
-                }
-            },
-            "filter": {
-                "edge_ngram_filter_front": {
-                    "type": "edge_ngram",
-                    "min_gram": "1",
-                    "max_gram": "50",
-                    "side": "front"
-                },
-                "edge_ngram_filter_back": {
-                    "type": "edge_ngram",
-                    "min_gram": "1",
-                    "max_gram": "50",
-                    "side": "back"
-                }
-            }
-        }
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "max_ngram_diff": 50
     },
-    "mappings": {
-        "properties": {
-            "item": {
-                "type": "keyword",
-                "fields": {
-                    "jamo_ngram": {
-                        "type": "text",
-                        "analyzer": "jamo_ngram_analyzer",
-                        "search_analyzer": "jamo_ngram_search_analyzer"
-                    },
-                    "jamo_edge_ngram": {
-                        "type": "text",
-                        "analyzer": "jamo_edge_ngram_analyzer",
-                        "search_analyzer": "jamo_ngram_search_analyzer"
-                    },
-                    "jamo_edge_ngram_back": {
-                        "type": "text",
-                        "analyzer": "jamo_edge_ngram_analyzer_back",
-                        "search_analyzer": "jamo_ngram_search_analyzer"
-                    },
-                    "spell": {
-                        "type": "completion",
-                        "analyzer": "spell_analyzer"
-                    },
-                    "eng2kor": {
-                        "type": "text",
-                        "analyzer": "standard",
-                        "search_analyzer": "eng2kor_analyzer"
-                    },
-                    "kor2eng": {
-                        "type": "text",
-                        "analyzer": "standard",
-                        "search_analyzer": "kor2eng_analyzer"
-                    }
-                }
-            }
+    "analysis": {
+      "analyzer": {
+        "jamo_ngram_analyzer": {
+          "type": "custom",
+          "tokenizer": "ngram_tokenizer",
+          "filter": ["javacafe_jamo", "lowercase", "trim"]
+        },
+        "jamo_edge_ngram_analyzer": {
+          "type": "custom",
+          "tokenizer": "edge_ngram_tokenizer",
+          "filter": [
+            "javacafe_jamo",
+            "lowercase",
+            "trim",
+            "edge_ngram_filter_front"
+          ]
+        },
+        "jamo_edge_ngram_analyzer_back": {
+          "type": "custom",
+          "tokenizer": "edge_ngram_tokenizer",
+          "filter": [
+            "javacafe_jamo",
+            "lowercase",
+            "trim",
+            "edge_ngram_filter_back"
+          ]
+        },
+        "jamo_ngram_search_analyzer": {
+          "type": "custom",
+          "tokenizer": "ngram_tokenizer",
+          "filter": ["javacafe_jamo", "lowercase", "trim"]
+        },
+        "spell_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["trim", "lowercase", "javacafe_spell"]
+        },
+        "kor2eng_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["trim", "lowercase", "javacafe_kor2eng"]
+        },
+        "eng2kor_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["trim", "lowercase", "javacafe_eng2kor"]
         }
+      },
+      "tokenizer": {
+        "ngram_tokenizer": {
+          "type": "ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "token_chars": ["letter", "digit", "punctuation", "symbol"]
+        },
+        "edge_ngram_tokenizer": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "token_chars": ["letter", "digit", "punctuation", "symbol"]
+        }
+      },
+      "filter": {
+        "edge_ngram_filter_front": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "side": "front"
+        },
+        "edge_ngram_filter_back": {
+          "type": "edge_ngram",
+          "min_gram": "1",
+          "max_gram": "50",
+          "side": "back"
+        }
+      }
     }
+  },
+  "mappings": {
+    "properties": {
+      "item": {
+        "type": "keyword",
+        "fields": {
+          "jamo_ngram": {
+            "type": "text",
+            "analyzer": "jamo_ngram_analyzer",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "jamo_edge_ngram": {
+            "type": "text",
+            "analyzer": "jamo_edge_ngram_analyzer",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "jamo_edge_ngram_back": {
+            "type": "text",
+            "analyzer": "jamo_edge_ngram_analyzer_back",
+            "search_analyzer": "jamo_ngram_search_analyzer"
+          },
+          "spell": {
+            "type": "completion",
+            "analyzer": "spell_analyzer"
+          },
+          "eng2kor": {
+            "type": "text",
+            "analyzer": "standard",
+            "search_analyzer": "eng2kor_analyzer"
+          },
+          "kor2eng": {
+            "type": "text",
+            "analyzer": "standard",
+            "search_analyzer": "kor2eng_analyzer"
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,11 +1,11 @@
 {
   "script": {
-      "lang": "mustache",
-      "source": {
-          "query": {
-              "match_all": {}
-          },
-          "size": 100
-      }
+    "lang": "mustache",
+    "source": {
+      "query": {
+        "match_all": {}
+      },
+      "size": 100
+    }
   }
 }

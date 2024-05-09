@@ -1,14 +1,14 @@
 {
-    "script": {
-        "lang": "mustache",
-        "source": {
-            "query": {
-                "match": {
-                    "item.eng2kor": {
-                        "query": "{{query}}"
-                    }
-                }
-            }
+  "script": {
+    "lang": "mustache",
+    "source": {
+      "query": {
+        "match": {
+          "item.eng2kor": {
+            "query": "{{query}}"
+          }
         }
+      }
     }
+  }
 }
