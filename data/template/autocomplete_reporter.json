@@ -7,7 +7,7 @@
           "should": [
             {
               "prefix": {
-                "item": "{{query}}"
+                "name": "{{query}}"
               }
             },
             {
