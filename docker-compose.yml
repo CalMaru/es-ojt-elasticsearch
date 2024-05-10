@@ -17,7 +17,6 @@ services:
       bootstrap.memory_lock: true
       xpack.security.enabled: false
       ES_JAVA_OPTS: "-Xmx2g -Xms2g"
-      ELASTIC_PASSWORD: ${ES_PASSWORD}
     volumes:
       - ./elasticsearch/elasticsearch:/usr/share/elasticsearch/data
     ports:
@@ -32,7 +31,6 @@ services:
     environment:
       elasticsearch.hosts: "http://elasticsearch:9200"
       elasticsearch.username: kibana_system
-      elasticsearch.password: ${ES_PASSWORD}
     ports:
       - "5601:5601"
     networks:
