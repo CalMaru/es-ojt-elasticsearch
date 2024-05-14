@@ -16,13 +16,13 @@ fi
 
 mkdir "$LOG_PATH"
 
-curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/category/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/category.json -o $LOG_PATH/category.log
+curl -X POST "$ES_URL/$CATEGORY/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/category.json -o $LOG_PATH/$CATEGORY.log
 echo ""
-curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/provider/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/provider.json -o $LOG_PATH/provider.log
+curl -X POST "$ES_URL/$PROVIDER/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/provider.json -o $LOG_PATH/$PROVIDER.log
 echo ""
-curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/reporter/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/reporter.json -o $LOG_PATH/reporter.log
+curl -X POST "$ES_URL/$REPORTER/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/reporter.json -o $LOG_PATH/$REPORTER.log
 echo ""
-curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/keyword/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/keyword.json -o $LOG_PATH/keyword.log
+curl -X POST "$ES_URL/$KEYWORD/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/keyword.json -o $LOG_PATH/$KEYWORD.log
 echo ""
-curl -X POST -u elastic:$ES_PASSWORD "$ES_URL/news/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/news.json -o $LOG_PATH/news.log
+curl -X POST "$ES_URL/$NEWS/_bulk?pretty" -H "Content-Type: application/x-ndjson" --data-binary @$BULK_PATH/news.json -o $LOG_PATH/$NEWS.log
 echo ""

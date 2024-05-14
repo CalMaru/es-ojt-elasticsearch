@@ -7,15 +7,15 @@ else
     exit 1
 fi
 
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/category"
+curl -X DELETE "$ES_URL/$CATEGORY"
 echo ""
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/provider"
+curl -X DELETE "$ES_URL/$PROVIDER"
 echo ""
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/reporter"
+curl -X DELETE "$ES_URL/$REPORTER"
 echo ""
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/keyword-preprocessing"
+curl -X DELETE "$ES_URL/$KEYWORD_PREPROCESSING"
 echo ""
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/keyword"
+curl -X DELETE "$ES_URL/$KEYWORD"
 echo ""
-curl -X DELETE -u elastic:$ES_PASSWORD "$ES_URL/news"
+curl -X DELETE "$ES_URL/$NEWS"
 echo ""
