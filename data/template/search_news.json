@@ -1,6 +1,6 @@
 {
   "script": {
     "lang": "mustache",
-    "source": ""
+    "source": "{ \"size\": \"{{size}}\", \"pit\": { \"id\": \"{{pit_id}}\", \"keep_alive\": \"1m\" }, {{#page}} \"search_after\": {{#toJSON}}search_after{{/toJSON}}, {{/page}} \"_source\": {{#toJson}}source{{/toJson}},  \"query\": { \"bool\": { \"must\": {{#toJson}}must{{/toJson}}, \"should\": [ {  \"prefix\": { \"title\": { \"value\": \"{{query}}\", \"boost\": 10 } } }, { \"term\": { \"title.edge_ngram\": { \"value\":  \"{{query}}\",  \"boost\": 5 } } }, { \"prefix\": { \"content\": {  \"value\": \"{{query}}\", \"boost\": 7 } } }, { \"term\": { \"content.edge_ngram\": {  \"value\": \"{{query}}\",  \"boost\": 2 } } }], \"minimum_should_match\": 1 } }, \"sort\": [ { \"{{sort_key}}\": \"{{sort_value}}\" } ]  {{#highlight}} ,\"highlight\": { \"fields\": { \"title\": { \"pre_tags\": [ \"{{start_tag}}\" ], \"post_tags\": [ \"{{end_tag}}\" ] } }  }  {{/highlight}} }"
   }
 }
